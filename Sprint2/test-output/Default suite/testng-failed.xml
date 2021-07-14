@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testNg.Unacademy">
+      <class name="testng.UnacademyTestNg">
         <methods>
+          <include name="VerifyInvalidPhoneNumber" invocation-numbers="0"/>
+          <include name="launchApplication"/>
+          <include name="VerifyLogin" invocation-numbers="0"/>
           <include name="afterTest"/>
-          <include name="beforeTest"/>
-          <include name="LoginWithinValidPhonenumber"/>
         </methods>
-      </class> <!-- testNg.Unacademy -->
+      </class> <!-- testng.UnacademyTestNg -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

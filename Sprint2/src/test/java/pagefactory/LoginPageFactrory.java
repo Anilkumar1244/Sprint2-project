@@ -23,25 +23,25 @@ public class LoginPageFactrory {
 	@CacheLookup
 	@FindBy(xpath="//button[@aria-label='Login']") WebElement Login;
 	@FindBy(xpath="//input[@placeholder='Enter your mobile number']") WebElement ValidPhoneNumber;
-	@FindBy(xpath="//div//button[@class='Button__StyledButton-dg3jck-0 bwPiUm']") WebElement LoginWithPhoneNumberButton;
-	@FindBy(xpath = "//h2[@class='H2-s1k28w-0 EnterOtpStep__Header-sc-73b7t6-10 WOSgl kQEuid']") WebElement getOtpPage;
+	@FindBy(xpath="//button[@class='Button__StyledButton-dg3jck-0 hQXIIH']") WebElement LoginWithPhoneNumberButton;
+	@FindBy(xpath = "//h2[@class='H2-s1k28w-0 EnterOtpStep__Header-sc-73b7t6-10 WOSgl hhTvdg']") WebElement getOtpPage;
 	@FindBy(xpath="//input[@placeholder='One time password']") WebElement EnterOtp;
 	@FindBy(xpath="//button[@aria-label='Verify OTP']") WebElement VerifytOtp;
 	@FindBy(xpath="//input[@placeholder='Enter your mobile number']") WebElement InvalidPhoneNumber;
-	@FindBy(xpath="//P[@class='TextField__StyledP2-sc-17ki4o0-0 fSmstq']") WebElement ErrorMessage;
+	@FindBy(xpath="//p[text()='Phone number is not valid']") WebElement ErrorMessage;
 	@FindBy(xpath="//h6[@class='H6-sc-1gn2suh-0 EnterNumberStep__StyledH6-sc-17qxvlo-3 dqwUfd cVVQLV']") WebElement ContinueWithEmail;
-	@FindBy(xpath="//button[@class='Button__StyledButton-dg3jck-0 bwPiUm EnterEmailStep__LoginButton-sc-1txz5a5-5 cpauKv']") WebElement LoginwithEmailButton;
+	@FindBy(xpath="//button[@class='Button__StyledButton-dg3jck-0 hQXIIH EnterEmailStep__LoginButton-sc-1txz5a5-5 YRzMw']") WebElement LoginwithEmailButton;
 	@FindBy(xpath="//input[@placeholder='Email address']") WebElement InValidEmail;
-	@FindBy(xpath="//P[@class='TextField__StyledP2-sc-17ki4o0-0 fSmstq']") WebElement EmailErrorMessage;
+	@FindBy(xpath="//p[@class='TextField__StyledP2-sc-17ki4o0-0 fSmstq']") WebElement EmailErrorMessage;
 	@FindBy(xpath ="//span[text()='United States']") WebElement selectcountry;
 	@FindBy(xpath ="//img[@class='CountryMenu__StyledImg-sc-7z48zf-2 fLndBE']") WebElement countrydropdown;
 	@FindBy(xpath = "//input[@placeholder='Name']") WebElement Namefield;
 	@FindBy(xpath = "//input[@placeholder='Email address']") WebElement emailidfield;
 
 
-	public static final String ACCOUNT_SID="AC89fd00d73c446f91036c3aca25fde506";
-	public static final String AUTH_TOKEN="72dc4ef761b32ba8f96304b87465e6c6";
-
+	public static final String ACCOUNT_SID="AC4b65aae49e712b316322eeb942ae9d16";
+	public static final String AUTH_TOKEN="d4a9cdd26e922c410343bcf74b182c46";
+	
 	public LoginPageFactrory(WebDriver driver) {
 		super();
 		this.driver = driver;
@@ -53,7 +53,7 @@ public class LoginPageFactrory {
 		Login.click();
 		Thread.sleep(5000);
 	}
-	public void ValidPhoneNumber(String ValidPhonenumner) throws InterruptedException
+	public void ValidPhoneNumber(String ValidPhonenumber) throws InterruptedException
 	{
 		countrydropdown.click();
 		JavascriptExecutor je = (JavascriptExecutor) driver;
@@ -61,12 +61,12 @@ public class LoginPageFactrory {
 		Thread.sleep(1000);
 		selectcountry.click();
 		Thread.sleep(2000);
-		ValidPhoneNumber.sendKeys(ValidPhonenumner);
+		ValidPhoneNumber.sendKeys(ValidPhonenumber);
 	}
 	public void LoginWithPhoneNumberButton() throws InterruptedException
 	{
 		LoginWithPhoneNumberButton.click();
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 	}
 	public void getOtpPage()
 	{
@@ -114,7 +114,7 @@ public class LoginPageFactrory {
 	public void ErrorMessage()
 	{
 		String Actual=ErrorMessage.getText();
-		String Exp="Failed to send sms to the number";
+		String Exp="Phone number is not valid";
 		Assert.assertEquals(Actual, Exp);	
 	}
 	public void ContinueWithEmail() throws InterruptedException
@@ -126,7 +126,7 @@ public class LoginPageFactrory {
 	public void LoginwithValidEmailButton() throws InterruptedException
 	{
 		LoginwithEmailButton.click();
-		Thread.sleep(5000);		
+		Thread.sleep(6000);		
 	}
 	public void InValidEmail(String Invalidemailid) throws InterruptedException
 	{
@@ -142,7 +142,7 @@ public class LoginPageFactrory {
 
 	public static String getMessage() {
 		return getMessages().filter(m -> m.getDirection().compareTo(Message.Direction.INBOUND) == 0)
-				.filter(m -> m.getTo().equals("+12534657600")).map(Message::getBody).findFirst()
+				.filter(m -> m.getTo().equals("+13867533857")).map(Message::getBody).findFirst()
 				.orElseThrow(IllegalStateException::new);
 	}
 

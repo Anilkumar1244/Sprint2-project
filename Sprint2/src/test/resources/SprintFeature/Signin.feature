@@ -4,7 +4,7 @@ Feature: Create your account
     Given user is on home page
     When user clicks login button
     And user click on create your account button
-    And user enter the Phonenumber as "12534657600"
+    And user enter the Phonenumber as "13867533857"
     And user click on continue button
     And user enter Otp
     And user enter the name as "Anil"
